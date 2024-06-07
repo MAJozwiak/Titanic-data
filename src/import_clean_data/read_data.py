@@ -4,3 +4,4 @@ def import_data():
     data_test=pd.read_csv(r"C:\Users\marta\PycharmProjects\Titanic-data\data\test.csv")
     print(data_train)
     print(data_test)
+    return data_train, data_test
