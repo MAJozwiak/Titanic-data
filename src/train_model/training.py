@@ -3,6 +3,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
+
 def random_forest(X_train,y_train):
     rf = RandomForestClassifier()
     parameters = {'n_estimators': [100], 'max_depth': [2]}

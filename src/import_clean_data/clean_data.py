@@ -1,5 +1,5 @@
 import pandas as pd
-import loguru as logger
+
 def clean_data(data: pd.DataFrame) -> pd.DataFrame:
     data['Age'] = data['Age'].fillna(data['Age'].mean().round()).astype(int) #Empty Age values filled with mean and then round
     data['Sex'] = data['Sex'].map({'male':0,'female':1}) #Sex values maped from string to int (necessery for further model training)
