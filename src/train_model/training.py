@@ -3,7 +3,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import GridSearchCV
 from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
-def evaluating(X_train,y_train):
+def random_forest(X_train,y_train):
     rf = RandomForestClassifier()
     parameters = {'n_estimators': [100], 'max_depth': [2]}
     clf = GridSearchCV(rf, parameters, cv=5)
@@ -27,8 +27,9 @@ def decision_tree(X_train,y_train):
     grid_search.fit(X_train, y_train)
     return grid_search.best_estimator_
 
-
-def score(clf,X_test,y_test):
+def score(clf,X_test,y_test,open_file='score.csv'):
     y_pred = clf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    print("Accuracy:", accuracy)
+    print("Accuracy:",accuracy)
+    with open(open_file, 'a') as file:
+        file.write(f"Accuracy: {accuracy}\n")

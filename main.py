@@ -22,7 +22,7 @@ def main(config_path):
     Y_train=train['Survived']
     X_test=test.drop('Survived', axis=1)
     Y_test=test['Survived']
-    clf_forest=training.evaluating(X_train,Y_train)
+    clf_forest=training.random_forest(X_train,Y_train)
     clf_svm=training.svm_model(X_train, Y_train)
     clf_decision_tree=training.decision_tree(X_train, Y_train)
     print("Random Forest")
