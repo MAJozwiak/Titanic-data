@@ -17,11 +17,11 @@ def main(config_path):
 
     data_train, data_test = read_data.import_data(train_path, test_path)
     train=clean_data.clean_data(data_train)
-    test=clean_data.clean_test_data(data_test)
+    test=clean_data.clean_data(data_test)
     rf = training.evaluating(train)
     pred = training.prediciton(test, rf)
     training.accuracy(test, pred)
-    print(pred)
+
 
 if __name__ == "__main__":
     main()
