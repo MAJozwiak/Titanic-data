@@ -1,5 +1,5 @@
-
-def clean_data(data):
+import pandas as pd
+def clean_data(data: pd.DataFrame) -> pd.DataFrame:
     data['Age']=data['Age'].fillna(data['Age'].mean().round())
     data["Age"]=data["Age"].astype(int)
     data['Sex'] = data['Sex'].map({'male':0,'female':1})
@@ -15,7 +15,7 @@ def clean_data(data):
     print(data)
     return data
 
-def clean_test_data(data):
+def clean_test_data(data: pd.DataFrame) -> pd.DataFrame:
     data['Age'] = data['Age'].fillna(data['Age'].mean().round())
     data["Age"] = data["Age"].astype(int)
     data['Sex'] = data['Sex'].map({'male': 0, 'female': 1})
