@@ -1,0 +1,1 @@
+In this project, I've implemented models to predict the survival of individuals based on the Titanic dataset. The project includes data cleaning and importing, data analysis, and the implementation of predictive models such as Random Forest, SVM, and Decision Tree.
