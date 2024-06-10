@@ -1,5 +1,3 @@
-import numpy as np
-import pandas as pd
 
 def clean_data(data):
     data['Age']=data['Age'].fillna(data['Age'].mean().round())

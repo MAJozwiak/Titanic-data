@@ -1,9 +1,5 @@
-import graphviz
-import pandas as pd
-from PIL._imaging import display
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-from sklearn.tree import export_graphviz
 
 def evaluating(data):
     rf = RandomForestClassifier()
