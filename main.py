@@ -18,9 +18,20 @@ def main(config_path):
     data_train, data_test = read_data.import_data(train_path, test_path)
     train=clean_data.clean_data(data_train)
     test=clean_data.clean_data(data_test)
-    rf = training.evaluating(train)
-    pred = training.prediciton(test, rf)
-    training.accuracy(test, pred)
+    X_train=train.drop('Survived', axis=1)
+    Y_train=train['Survived']
+    X_test=test.drop('Survived', axis=1)
+    Y_test=test['Survived']
+    clf_forest=training.evaluating(X_train,Y_train)
+    clf_svm=training.svm_model(X_train, Y_train)
+    clf_decision_tree=training.decision_tree(X_train, Y_train)
+    print("Random Forest")
+    training.score(clf_forest,X_test,Y_test)
+    print("SVM")
+    training.score(clf_svm, X_test, Y_test)
+    print("Decision Tree")
+    training.score(clf_decision_tree, X_test, Y_test)
+
 
 
 if __name__ == "__main__":
