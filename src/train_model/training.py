@@ -31,6 +31,7 @@ def decision_tree(X_train,y_train):
 def score(clf,X_test,y_test,open_file='score.csv'):
     y_pred = clf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
+    clf_name = clf.__class__.__name__
     print("Accuracy:",accuracy)
     with open(open_file, 'a') as file:
-        file.write(f"Accuracy: {accuracy}\n")
+        file.write(f"Classifier: {clf_name}, Accuracy: {accuracy}\n")
