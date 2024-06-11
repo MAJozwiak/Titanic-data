@@ -1,8 +1,11 @@
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
+from sklearn.metrics import f1_score
 from sklearn.model_selection import GridSearchCV
 from sklearn import svm
-from sklearn.tree import DecisionTreeClassifier # Import Decision Tree Classifier
+from sklearn.tree import DecisionTreeClassifier
 
 def random_forest(X_train,y_train):
     rf = RandomForestClassifier()
@@ -31,7 +34,11 @@ def decision_tree(X_train,y_train):
 def score(clf,X_test,y_test,open_file='score.csv'):
     y_pred = clf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
+    precision = precision_score(y_test, y_pred,average='binary')
+    recall = recall_score(y_test, y_pred, average='binary')
+    f1 = f1_score(y_test, y_pred, average='binary')
     clf_name = clf.__class__.__name__
-    print("Accuracy:",accuracy)
+    print("Accuracy:", accuracy, "Precision:", precision, "Recall:", recall, "F1_score:", f1)
     with open(open_file, 'a') as file:
-        file.write(f"Classifier: {clf_name}, Accuracy: {accuracy}\n")
+        file.write(
+            f"Classifier: {clf_name}, Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1_score: {f1}\n")
