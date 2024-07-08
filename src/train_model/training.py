@@ -7,19 +7,19 @@ from sklearn.model_selection import GridSearchCV
 from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier
 
-def random_forest(X_train,y_train):
+def random_forest(X_train,y_train) -> RandomForestClassifier:
     rf = RandomForestClassifier()
     parameters = {'n_estimators': [100], 'max_depth': [2]}
     clf = GridSearchCV(rf, parameters, cv=5)
     clf.fit(X_train, y_train)
     return clf.best_estimator_
 
-def svm_model(X_train,y_train):
+def svm_model(X_train,y_train) -> RandomForestClassifier:
     clf = svm.SVC(kernel='linear')
     clf.fit(X_train, y_train)
     return clf
 
-def decision_tree(X_train,y_train):
+def decision_tree(X_train,y_train) -> RandomForestClassifier:
     clf = DecisionTreeClassifier()
     param_grid = {
         'criterion': ['gini', 'entropy'],
@@ -31,7 +31,7 @@ def decision_tree(X_train,y_train):
     grid_search.fit(X_train, y_train)
     return grid_search.best_estimator_
 
-def score(clf,X_test,y_test,open_file='score.csv'):
+def score(clf,X_test,y_test,open_file='score.csv')  -> None:
     y_pred = clf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
     precision = precision_score(y_test, y_pred,average='binary')
