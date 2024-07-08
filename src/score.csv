@@ -13,3 +13,6 @@ Classifier: DecisionTreeClassifier, Accuracy: 0.9544364508393285, Precision: 0.9
 Classifier: RandomForestClassifier, Accuracy: 0.9016786570743405, Precision: 1.0, Recall: 0.7302631578947368, F1_score: 0.844106463878327
 Classifier: SVC, Accuracy: 1.0, Precision: 1.0, Recall: 1.0, F1_score: 1.0
 Classifier: DecisionTreeClassifier, Accuracy: 0.9544364508393285, Precision: 0.9523809523809523, Recall: 0.9210526315789473, F1_score: 0.9364548494983278
+Classifier: RandomForestClassifier, Accuracy: 0.9064748201438849, Precision: 1.0, Recall: 0.743421052631579, F1_score: 0.8528301886792453
+Classifier: SVC, Accuracy: 1.0, Precision: 1.0, Recall: 1.0, F1_score: 1.0
+Classifier: DecisionTreeClassifier, Accuracy: 0.9544364508393285, Precision: 0.9523809523809523, Recall: 0.9210526315789473, F1_score: 0.9364548494983278

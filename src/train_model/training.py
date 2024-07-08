@@ -14,12 +14,12 @@ def random_forest(X_train,y_train) -> RandomForestClassifier:
     clf.fit(X_train, y_train)
     return clf.best_estimator_
 
-def svm_model(X_train,y_train) -> RandomForestClassifier:
+def svm_model(X_train,y_train) -> svm.SVC:
     clf = svm.SVC(kernel='linear')
     clf.fit(X_train, y_train)
     return clf
 
-def decision_tree(X_train,y_train) -> RandomForestClassifier:
+def decision_tree(X_train,y_train) -> DecisionTreeClassifier:
     clf = DecisionTreeClassifier()
     param_grid = {
         'criterion': ['gini', 'entropy'],
