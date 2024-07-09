@@ -1,4 +1,4 @@
 paths:
   train_data: '../data/Titanic-Dataset.csv'
   test_data: '../data/test.csv'
-  score: 'score.csv'
+  score: '../score.csv'

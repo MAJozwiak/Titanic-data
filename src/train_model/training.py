@@ -7,19 +7,22 @@ from sklearn.model_selection import GridSearchCV
 from sklearn import svm
 from sklearn.tree import DecisionTreeClassifier
 
-def random_forest(X_train,y_train) -> RandomForestClassifier:
+
+def random_forest(X_train, y_train) -> RandomForestClassifier:
     rf = RandomForestClassifier()
     parameters = {'n_estimators': [100], 'max_depth': [2]}
     clf = GridSearchCV(rf, parameters, cv=5)
     clf.fit(X_train, y_train)
     return clf.best_estimator_
 
-def svm_model(X_train,y_train) -> svm.SVC:
+
+def svm_model(X_train, y_train) -> svm.SVC:
     clf = svm.SVC(kernel='linear')
     clf.fit(X_train, y_train)
     return clf
 
-def decision_tree(X_train,y_train) -> DecisionTreeClassifier:
+
+def decision_tree(X_train, y_train) -> DecisionTreeClassifier:
     clf = DecisionTreeClassifier()
     param_grid = {
         'criterion': ['gini', 'entropy'],
@@ -31,14 +34,14 @@ def decision_tree(X_train,y_train) -> DecisionTreeClassifier:
     grid_search.fit(X_train, y_train)
     return grid_search.best_estimator_
 
-def score(clf,X_test,y_test,open_file='score.csv')  -> None:
+
+def score(clf, X_test, y_test, open_file) -> None:
     y_pred = clf.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-    precision = precision_score(y_test, y_pred,average='binary')
+    precision = precision_score(y_test, y_pred, average='binary')
     recall = recall_score(y_test, y_pred, average='binary')
     f1 = f1_score(y_test, y_pred, average='binary')
     clf_name = clf.__class__.__name__
-    print("Accuracy:", accuracy, "Precision:", precision, "Recall:", recall, "F1_score:", f1)
     with open(open_file, 'a') as file:
         file.write(
             f"Classifier: {clf_name}, Accuracy: {accuracy}, Precision: {precision}, Recall: {recall}, F1_score: {f1}\n")
