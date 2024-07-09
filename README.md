@@ -20,7 +20,7 @@ RandomForest combines multiple decision trees. It uses bootstrap aggregation and
 - ***config.yaml*** - config file that contains paths, to csv files (datasets and score's file),
 - ***test.csv*** - testing data,
 - ***Titanic-Dataset.csv*** - training data.
-## Metrics:
+## Metrics
 The results of all three predictions have been saved to the score.csv file. Four different metrics were calculated for each model:
 - ***Accuracy***: the percentage of correct classifications,
 - ***Precision***: the percentage of correctly predicted positive cases,
